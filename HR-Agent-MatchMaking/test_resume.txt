@@ -1,0 +1,13 @@
+Alice Smith
+Senior Python Developer
+
+Experience:
+- 5 years building scalable microservices with FastAPI
+- Expert in Docker containerization and Kubernetes orchestration
+- Strong background in MongoDB and NoSQL databases
+- Proficient with Redis for caching and session management
+- Experience with asyncio and async/await patterns
+- Machine learning pipeline development using TensorFlow
+
+Skills:
+Python, FastAPI, Docker, Kubernetes, MongoDB, Redis, TensorFlow, SQL, REST APIs, Microservices

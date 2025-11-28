@@ -1,0 +1,5 @@
+job_id,job_title,company,location,country,description,salary_min,salary_max,employment_type,url,source,posted_date
+# Sample job data from aggregated APIs
+# This file will be populated by running the job_api_aggregator service
+# To populate: POST http://localhost:8000/api/jobs/trigger-refresh
+# Or wait for automatic scheduled fetch (every 3 hours by default)

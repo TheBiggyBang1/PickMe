@@ -1,0 +1,21 @@
+{
+  "model_name": "multi-qa-MiniLM-L6-cos-v1",
+  "model_type": "sentence-transformers",
+  "version": "1.0.0",
+  "embedding_dimension": 384,
+  "description": "Sentence-BERT model for semantic similarity matching between resumes and job descriptions",
+  "training_data": "MS MARCO dataset - Question-Answer pairs",
+  "use_case": "Resume-to-job semantic matching using cosine similarity",
+  "performance": {
+    "avg_cosine_similarity_threshold": 0.75,
+    "recommended_top_k": 50
+  },
+  "dependencies": {
+    "sentence-transformers": "2.2.2",
+    "torch": ">=1.6.0",
+    "transformers": ">=4.0.0"
+  },
+  "authors": "ESPRIT University - HR-Agent Team",
+  "last_updated": "2025-10-19",
+  "huggingface_hub": "https://huggingface.co/sentence-transformers/multi-qa-MiniLM-L6-cos-v1"
+}
