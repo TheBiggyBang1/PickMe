@@ -93,7 +93,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigat
               🚀
             </motion.span>
             <div>
-              <h1>HR Agent MatchMaker</h1>
+              <h1>PickMe</h1>
               <p>Find your perfect job with AI-powered matching</p>
             </div>
           </motion.div>

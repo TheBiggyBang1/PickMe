@@ -96,7 +96,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       >
         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
           <h1 style={{ color: 'white', fontSize: '2.5rem', marginBottom: '1rem', fontWeight: '700' }}>
-            Welcome to HR Agent MatchMaker
+            Welcome to PickMe
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.95)', fontSize: '1.1rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
             Find your perfect job match powered by AI. Simply upload your resume and our intelligent matching engine 

@@ -72,7 +72,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             textAlign: 'center',
           },
         },
-        'Welcome to HR Agent'
+        'Welcome to PickMe'
       ),
       // Stat Cards Grid
       React.createElement(

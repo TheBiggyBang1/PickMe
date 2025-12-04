@@ -75,7 +75,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigat
                   letterSpacing: '-1px',
                 },
               },
-              '🚀 HR Agent'
+              '🚀 PickMe'
             ),
             // Navigation
             React.createElement(
