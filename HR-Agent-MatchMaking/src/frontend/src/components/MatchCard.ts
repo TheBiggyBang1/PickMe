@@ -49,7 +49,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
 
   return React.createElement('div', {
     style: {
-      background: 'rgba(255,255,255,0.13)',
+      background: 'rgba(235, 235, 235, 0.87)',
       borderRadius: '24px',
       boxShadow: '0 8px 32px 0 rgba(102,126,234,0.18)',
       backdropFilter: 'blur(18px)',
@@ -168,7 +168,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
                 'div',
                 {
                   key: 'label',
-                  style: { fontSize: '0.75rem', color: '#a0aec0', marginBottom: '0.25rem' },
+                  style: { fontSize: '0.75rem', color: '#000000ff', marginBottom: '0.25rem' },
                 },
                 '📍 Location'
               ),

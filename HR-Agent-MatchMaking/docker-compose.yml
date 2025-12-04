@@ -32,6 +32,14 @@ services:
       MONGODB_URI: mongodb://mongodb:27017
       REDIS_URL: redis://redis:6379
       PYTHONUNBUFFERED: "1"
+      ADZUNA_APP_ID: ${ADZUNA_APP_ID}
+      ADZUNA_APP_KEY: ${ADZUNA_APP_KEY}
+      REED_API_KEY: ${REED_API_KEY}
+      USAJOBS_API_KEY: ${USAJOBS_API_KEY}
+      JSEARCH_API_KEY: ${JSEARCH_API_KEY}
+      FINDWORK_API_KEY: ${FINDWORK_API_KEY}
+      THEMUSE_API_KEY: ${THEMUSE_API_KEY}
+      APILAYER_JOBS_KEY: ${APILAYER_JOBS_KEY}
     env_file:
       - .env
     depends_on:
@@ -40,6 +48,7 @@ services:
     volumes:
       - ./src:/app/src
       - ./models:/app/models
+      - ./.env:/app/.env:ro
       - hf_cache:/root/.cache
     networks:
       - hr_agent_network

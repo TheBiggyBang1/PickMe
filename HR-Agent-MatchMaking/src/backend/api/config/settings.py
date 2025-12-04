@@ -2,6 +2,8 @@ from functools import lru_cache
 from typing import List
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pathlib import Path
+import os
 
 
 class Settings(BaseSettings):
@@ -51,7 +53,8 @@ class Settings(BaseSettings):
     MAX_JOBS_PER_API: int = 1000
 
     # Pydantic v2 settings configuration
-    model_config = SettingsConfigDict(env_file=".env", env_prefix="", extra="ignore")
+    # Look for .env in the container root or app directory
+    model_config = SettingsConfigDict(env_file=["/app/.env", ".env"], env_prefix="", extra="ignore")
 
 
 @lru_cache
