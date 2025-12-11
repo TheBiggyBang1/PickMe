@@ -47,18 +47,18 @@ def _validate_resume_content(text: str) -> None:
     
     has_non_resume = any(re.search(pattern, text_lower, re.MULTILINE) for pattern in non_resume_patterns)
     
-    # Need at least 2 strong indicators to be a resume
-    if strong_match < 2:
-        raise HTTPException(
-            status_code=400,
-            detail="Invalid resume: File does not appear to be a resume. Please upload a valid resume (CV) document."
-        )
+    # # Need at least 2 strong indicators to be a resume
+    # if strong_match < 2:
+    #     raise HTTPException(
+    #         status_code=400,
+    #         detail="Invalid resume: File does not appear to be a resume. Please upload a valid resume (CV) document."
+    #     )
     
-    if has_non_resume:
-        raise HTTPException(
-            status_code=400,
-            detail="Invalid resume: File content does not appear to be a resume. Please upload a valid resume (CV) document."
-        )
+    # if has_non_resume:
+    #     raise HTTPException(
+    #         status_code=400,
+    #         detail="Invalid resume: File content does not appear to be a resume. Please upload a valid resume (CV) document."
+    #     )
 
 
 @router.post("/upload-resume", response_model=Resume)

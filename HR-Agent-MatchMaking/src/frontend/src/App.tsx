@@ -115,6 +115,7 @@ export const App: React.FC = () => {
   const [stats, setStats] = useState<JobStats | null>(null);
   const [toast, setToast] = useState<ToastState | null>(null);
   const [sourceFilter, setSourceFilter] = useState('all');
+  const [filteredJob,setFilteredJob]=useState(matches)
 
   useEffect(() => {
     loadJobStats();
@@ -127,6 +128,9 @@ export const App: React.FC = () => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
+  useEffect(()=>{
+    setFilteredJob(matches.filter(job=>job.source===sourceFilter ))
+  },[sourceFilter])
 
   async function loadJobStats() {
     try {
@@ -236,7 +240,7 @@ export const App: React.FC = () => {
       case 'matches':
         return (
           <MatchResults
-            matches={matches}
+            matches={sourceFilter!=='all'?filteredJob:matches}
             loading={loading}
             onRefresh={handleRefreshMatches}
             sourceFilter={sourceFilter}
