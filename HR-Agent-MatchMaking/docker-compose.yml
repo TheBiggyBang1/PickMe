@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   mongodb:
-    image: mongo:6.0
+    image: mongo:latest
     container_name: hr_agent_mongodb
     ports:
-      - "27017:27017"
+      - "27018:27017"
     environment:
       MONGO_INITDB_DATABASE: resume_matcher
     volumes:
-      - mongodb_data:/data/db
+      - mongodb_data2:/data/db
     networks:
       - hr_agent_network
 
@@ -55,7 +55,7 @@ services:
     command: uvicorn src.backend.api.app:app --host 0.0.0.0 --port 8000 --reload
 
 volumes:
-  mongodb_data:
+  mongodb_data2:
   hf_cache:
 
 networks:
