@@ -62,14 +62,16 @@ export const matchService = {
    * @param resumeId - MongoDB resume document ID
    * @param topK - Number of top matches to return (default: 50)
    * @param sourceFilter - Filter by job source ('all', 'reed', 'usajobs', etc.)
+   * @param diversity - Include diverse job types to avoid over-concentration (default: true)
    * @returns Promise<MatchResponse>
    */
   async getMatches(
     resumeId: string,
     topK: number = 50,
-    sourceFilter: string = 'all'
+    sourceFilter: string = 'all',
+    diversity: boolean = true
   ): Promise<MatchResponse> {
-    const url = `${API_BASE_URL}/api/match/match-resume/${resumeId}?top_k=${topK}&source_filter=${sourceFilter}`;
+    const url = `${API_BASE_URL}/api/match/match-resume/${resumeId}?top_k=${topK}&source_filter=${sourceFilter}&diversity=${diversity}`;
 
     const response = await fetch(url, {
       method: 'POST',
@@ -97,7 +99,20 @@ export const matchService = {
       throw new Error(`Failed to fetch job statistics: ${response.statusText}`);
     }
 
-    return response.json();
+    const data = await response.json();
+
+    // Normalize response to support older UI components expecting
+    // `total_jobs` and `by_source` fields while preserving original keys.
+    const normalized = {
+      ...data,
+      total_jobs: (data as any).total_jobs_indexed ?? (data as any).total_jobs ?? 0,
+      by_source: (data as any).jobs_by_source ?? (data as any).by_source ?? {},
+      last_sync: (data as any).last_sync ?? null,
+      next_sync: (data as any).next_sync ?? null,
+      api_health: (data as any).api_health ?? {},
+    };
+
+    return normalized as unknown as JobStats;
   },
 
   /**

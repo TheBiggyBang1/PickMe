@@ -47,7 +47,7 @@ class Settings(BaseSettings):
 
     # Scheduler
     JOB_SYNC_INTERVAL: int = 3
-    DEFAULT_SEARCH_KEYWORDS: str = "software engineer,data scientist,web developer,machine learning,full stack developer"
+    DEFAULT_SEARCH_KEYWORDS: str = "java developer,javascript developer,c# developer,node.js developer,.net developer,react developer,angular developer,vue developer,frontend developer,backend developer,full stack developer,typescript developer,php developer,ruby developer,golang developer,rust developer,devops engineer,cloud architect,aws engineer,azure engineer,gcp engineer,kubernetes engineer"
     DEFAULT_SEARCH_LOCATIONS: str = "United States,United Kingdom,Canada,Germany,Remote"
     API_TIMEOUT: int = 10
     MAX_JOBS_PER_API: int = 1000

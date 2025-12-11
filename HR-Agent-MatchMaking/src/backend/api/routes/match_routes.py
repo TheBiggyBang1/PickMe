@@ -9,14 +9,14 @@ router = APIRouter(prefix="/match", tags=["match"])
 
 
 @router.post("/match-resume/{resume_id}", response_model=MatchResponse)
-async def match_resume(resume_id: str, top_k: int = Query(default=50, ge=1, le=200), source_filter: str = Query(default="all")):
+async def match_resume(resume_id: str, top_k: int = Query(default=50, ge=1, le=200), source_filter: str = Query(default="all"), diversity: bool = Query(default=True)):
     coll = get_resumes_collection()
     doc = coll.find_one({"resume_id": resume_id})
     if not doc:
         raise HTTPException(status_code=404, detail="Resume not found")
 
     text = doc.get("content") or ""
-    scored = match_resume_to_jobs(text, top_k=top_k, source_filter=source_filter)
+    scored = match_resume_to_jobs(text, top_k=top_k, source_filter=source_filter, diversity=diversity)
 
     matches_by_source = {}
     for j in scored:
